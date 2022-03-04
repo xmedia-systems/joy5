@@ -3,9 +3,9 @@ package main
 import (
 	"os"
 
-	"github.com/nareix/joy5/av"
-	"github.com/nareix/joy5/codec/h264"
-	"github.com/nareix/joy5/format/flv"
+	"github.com/xmedia-systems/joy5/av"
+	"github.com/xmedia-systems/joy5/codec/h264"
+	"github.com/xmedia-systems/joy5/format/flv"
 )
 
 func doMoveH264SeqhdrToKeyFrame(src, dst string) error {

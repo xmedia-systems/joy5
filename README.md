@@ -5,7 +5,7 @@ AV Toolkit.
 ### Install
 
 ```sh
-go get github.com/nareix/joy5/cmd/avtool
+go get github.com/xmedia-systems/joy5/cmd/avtool
 ```
 
 ### Benchmark RTMP

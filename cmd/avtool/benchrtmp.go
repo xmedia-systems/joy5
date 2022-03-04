@@ -7,9 +7,9 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/nareix/joy5/av"
-	"github.com/nareix/joy5/format"
-	"github.com/nareix/joy5/format/rtmp"
+	"github.com/xmedia-systems/joy5/av"
+	"github.com/xmedia-systems/joy5/format"
+	"github.com/xmedia-systems/joy5/format/rtmp"
 )
 
 func doBenchRtmp(listenAddr, file string) (err error) {

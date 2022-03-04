@@ -4,9 +4,9 @@ import (
 	"io"
 	"io/ioutil"
 
-	"github.com/nareix/joy5/av"
-	"github.com/nareix/joy5/codec/aac"
-	"github.com/nareix/joy5/format/flv/flvio"
+	"github.com/xmedia-systems/joy5/av"
+	"github.com/xmedia-systems/joy5/codec/aac"
+	"github.com/xmedia-systems/joy5/format/flv/flvio"
 )
 
 const SetDataFrame = "@setDataFrame"
