@@ -32,13 +32,7 @@ func doConv(src, dst string) (err error) {
 	}
 
 	canRe := func() bool {
-		if optNativeRate {
-			return true
-		}
-		if fw != nil && fw.IsRemote {
-			return true
-		}
-		return false
+		return optNativeRate && fw != nil && fw.IsRemote
 	}
 
 	for {
