@@ -83,6 +83,9 @@ const (
 
 	VIDEO_H264 = 7
 	VIDEO_H265 = 12
+	VIDEO_AV1  = 13
+	VIDEO_VP8  = 14
+	VIDEO_VP9  = 15
 )
 
 type Tag struct {
@@ -260,8 +263,19 @@ func (t *Tag) parseVideoHeader(b []byte) (n int, err error) {
 	if flags, err = pio.ReadU8(b, &n); err != nil {
 		return
 	}
-	t.FrameType = flags >> 4
-	t.VideoFormat = flags & 0xf
+	isExHeader := b[0] & 0x80
+	if isExHeader != 0 {
+		t.FrameType = (b[0] >> 4) & 0x07
+		t.AVCPacketType = b[0] & 0x0F
+
+		if b[1] == 'h' && b[2] == 'v' && b[3] == 'c' && b[4] == '1' {
+			// hevc
+			t.VideoFormat = VIDEO_H265
+		}
+	} else {
+		t.FrameType = flags >> 4
+		t.VideoFormat = flags & 0xf
+	}
 
 	switch t.VideoFormat {
 	case VIDEO_H264, VIDEO_H265:
